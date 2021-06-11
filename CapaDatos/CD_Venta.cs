@@ -36,7 +36,7 @@ namespace CapaDatos
         public int RegistrarVenta(string Detalle)
         {
             int respuesta = 0;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -66,7 +66,7 @@ namespace CapaDatos
         public Venta ObtenerDetalleVenta(int IdVenta)
         {
             Venta rptDetalleVenta = new Venta();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerDetalleVenta", oConexion);
                 cmd.Parameters.AddWithValue("@IdVenta", IdVenta);
@@ -102,7 +102,7 @@ namespace CapaDatos
                                 rptDetalleVenta.oTienda = (from dato in doc.Element("DETALLE_VENTA").Elements("DETALLE_TIENDA")
                                                            select new Tienda()
                                                            {
-                                                               RUC = dato.Element("RUC").Value,
+                                                               RUT = dato.Element("RUT").Value,
                                                                Nombre = dato.Element("Nombre").Value,
                                                                Direccion = dato.Element("Direccion").Value
                                                            }).FirstOrDefault();
@@ -146,7 +146,7 @@ namespace CapaDatos
         public List<Venta> ObtenerListaVenta(string Codigo, DateTime FechaInicio, DateTime FechaFin, string NumeroDocumento, string Nombre)
         {
             List<Venta> rptListaVenta = new List<Venta>();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerListaVenta", oConexion);
                 cmd.Parameters.AddWithValue("@Codigo", Codigo);

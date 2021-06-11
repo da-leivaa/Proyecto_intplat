@@ -32,7 +32,7 @@ namespace CapaDatos
         public List<Permisos> ObtenerPermisos(int IdRol)
         {
             List<Permisos> rptListaPermisos = new List<Permisos>();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerPermisos", oConexion);
                 cmd.Parameters.AddWithValue("@IdRol", IdRol);
@@ -69,7 +69,7 @@ namespace CapaDatos
         public bool ActualizarPermisos(string Detalle)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {

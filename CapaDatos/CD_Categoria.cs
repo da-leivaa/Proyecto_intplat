@@ -33,7 +33,7 @@ namespace CapaDatos
         public List<Categoria> ObtenerCategoria()
         {
             List<Categoria> rptListaCategoria = new List<Categoria>();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerCategorias", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -68,7 +68,7 @@ namespace CapaDatos
         public bool RegistrarCategoria(Categoria oCategoria)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -95,7 +95,7 @@ namespace CapaDatos
         public bool ModificarCategoria(Categoria oCategoria)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -128,7 +128,7 @@ namespace CapaDatos
         public bool EliminarCategoria(int IdCategoria)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {

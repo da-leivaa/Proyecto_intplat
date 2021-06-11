@@ -33,7 +33,7 @@ namespace CapaDatos
         public List<Tienda> ObtenerTiendas()
         {
             List<Tienda> rptListaUsuario = new List<Tienda>();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerTienda", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -49,7 +49,7 @@ namespace CapaDatos
                         {
                             IdTienda = Convert.ToInt32(dr["IdTienda"].ToString()),
                             Nombre = dr["Nombre"].ToString(),
-                            RUC = dr["RUC"].ToString(),
+                            RUT = dr["RUT"].ToString(),
                             Direccion = dr["Direccion"].ToString(),
                             Telefono = dr["Telefono"].ToString(),
                             Activo = Convert.ToBoolean(dr["Activo"].ToString())
@@ -72,13 +72,13 @@ namespace CapaDatos
         public bool RegistrarTienda(Tienda oTienda)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
                     SqlCommand cmd = new SqlCommand("usp_RegistrarTienda", oConexion);
                     cmd.Parameters.AddWithValue("Nombre", oTienda.Nombre);
-                    cmd.Parameters.AddWithValue("Ruc", oTienda.RUC);
+                    cmd.Parameters.AddWithValue("Rut", oTienda.RUT);
                     cmd.Parameters.AddWithValue("Direccion", oTienda.Direccion);
                     cmd.Parameters.AddWithValue("Telefono", oTienda.Telefono);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
@@ -107,14 +107,14 @@ namespace CapaDatos
         public bool ModificarTienda(Tienda oTienda)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
                     SqlCommand cmd = new SqlCommand("usp_ModificarTienda", oConexion);
                     cmd.Parameters.AddWithValue("IdTienda", oTienda.IdTienda);
                     cmd.Parameters.AddWithValue("Nombre", oTienda.Nombre);
-                    cmd.Parameters.AddWithValue("Ruc", oTienda.RUC);
+                    cmd.Parameters.AddWithValue("Rut", oTienda.RUT);
                     cmd.Parameters.AddWithValue("Direccion", oTienda.Direccion);
                     cmd.Parameters.AddWithValue("Telefono", oTienda.Telefono);
                     cmd.Parameters.AddWithValue("Activo", oTienda.Activo);
@@ -143,7 +143,7 @@ namespace CapaDatos
         public bool EliminarTienda(int IdTienda)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {

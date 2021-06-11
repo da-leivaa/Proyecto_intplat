@@ -11,7 +11,7 @@ namespace CapaModelo
     {
         public int IdTienda { get; set; }
         public string Nombre { get; set; }
-        public string RUC { get; set; }
+        public string RUT { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public bool Activo { get; set; }

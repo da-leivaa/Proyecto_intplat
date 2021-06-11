@@ -8,6 +8,14 @@ namespace CapaDatos
 {
     public class Conexion
     {
-        public static string CN = "Data Source=.;Initial Catalog=DBPRUEBAS;Persist Security Info=True;User ID=sa;Password=AsdFdel1-4";
+        private const string CN = "Data Source=.;Initial Catalog=DBPRUEBAS;Persist Security Info=True;User ID=sa;Password=AsdFdel1-4";
+
+        public static string ConexionDatos
+        {
+            get { return CN; }
+        }
     }
+
+
+    
 }

@@ -33,7 +33,7 @@ namespace CapaDatos
         {
             DataTable dt = new DataTable();
 
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_rptProductoTienda", oConexion);
                 cmd.Parameters.AddWithValue("@IdTienda", IdTienda);
@@ -60,7 +60,7 @@ namespace CapaDatos
         {
             DataTable dt = new DataTable();
 
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_rptVenta", oConexion);
                 cmd.Parameters.AddWithValue("@FechaInicio", FechaInicio);

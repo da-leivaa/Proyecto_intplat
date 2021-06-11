@@ -33,7 +33,7 @@ namespace CapaDatos
         public List<Producto> ObtenerProducto()
         {
             List<Producto> rptListaProducto = new List<Producto>();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerProductos", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -73,7 +73,7 @@ namespace CapaDatos
         public bool RegistrarProducto(Producto oProducto)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -102,7 +102,7 @@ namespace CapaDatos
         public bool ModificarProducto(Producto oProducto)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -137,7 +137,7 @@ namespace CapaDatos
         public bool EliminarProducto(int IdProducto)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {

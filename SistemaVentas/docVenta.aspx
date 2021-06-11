@@ -26,7 +26,7 @@
                             </td>
                             <td colspan="2" rowspan="3" align="center" style="vertical-align: top;">
                                 <table border="1" style="width: 100%; height: 100px; font-weight: bold; ">
-                                    <tr><td align="center">R.U.C. <span id="ructienda"></span></td></tr>
+                                    <tr><td align="center">R.U.C. <span id="ruttienda"></span></td></tr>
                                     <tr bgcolor="#D9D9D9"><td align="center"><span id="tipodocumento"></span></td></tr>
                                     <tr><td align="center">NRO - <span id="codigodocumento"></span> </td></tr>
                                 </table>
@@ -137,7 +137,7 @@
                 function (response) {
                     $("#seleccion").LoadingOverlay("hide");
                     if (response.estado) {
-                        $("#ructienda").text(response.objeto.oTienda.RUC);
+                        $("#ruttienda").text(response.objeto.oTienda.RUT);
                         $("#tipodocumento").text(response.objeto.TipoDocumento);
                         $("#codigodocumento").text(response.objeto.Codigo);
 

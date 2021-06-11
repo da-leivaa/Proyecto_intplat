@@ -25,7 +25,7 @@
                                 <div class="col-sm-2">
                                   <div class="form-group mb-0">
                                     <label for="txtRuc" class="col-form-label col-form-label-sm">RUC:</label>
-                                    <input type="text" class="form-control form-control-sm model" readonly id="txtRuc" name="RUC">
+                                    <input type="text" class="form-control form-control-sm model" readonly id="txtRuc" name="RUT">
                                   </div>
                                 </div>
                                 <div class="col-sm-3">

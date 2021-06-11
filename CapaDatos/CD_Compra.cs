@@ -35,7 +35,7 @@ namespace CapaDatos
         public bool RegistrarCompra(string Detalle)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -63,7 +63,7 @@ namespace CapaDatos
         public Compra ObtenerDetalleCompra(int IdCompra)
         {
             Compra rptDetalleCompra = new Compra();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerDetalleCompra", oConexion);
                 cmd.Parameters.AddWithValue("@IdCompra", IdCompra);
@@ -90,13 +90,13 @@ namespace CapaDatos
                                 rptDetalleCompra.oProveedor = (from dato in doc.Element("DETALLE_COMPRA").Elements("DETALLE_PROVEEDOR")
                                                                select new Proveedor()
                                                                {
-                                                                   Ruc = dato.Element("RUC").Value,
+                                                                   Rut = dato.Element("RUT").Value,
                                                                    RazonSocial = dato.Element("RazonSocial").Value,
                                                                }).FirstOrDefault();
                                 rptDetalleCompra.oTienda = (from dato in doc.Element("DETALLE_COMPRA").Elements("DETALLE_TIENDA")
                                                             select new Tienda()
                                                             {
-                                                                RUC = dato.Element("RUC").Value,
+                                                                RUT = dato.Element("RUT").Value,
                                                                 Nombre = dato.Element("Nombre").Value,
                                                                 Direccion = dato.Element("Direccion").Value
                                                             }).FirstOrDefault();
@@ -135,7 +135,7 @@ namespace CapaDatos
         public List<Compra> ObtenerListaCompra(DateTime FechaInicio, DateTime FechaFin, int IdProveedor, int IdTienda)
         {
             List<Compra> rptListaCompra = new List<Compra>();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerListaCompra", oConexion);
                 cmd.Parameters.AddWithValue("@FechaInicio", FechaInicio);

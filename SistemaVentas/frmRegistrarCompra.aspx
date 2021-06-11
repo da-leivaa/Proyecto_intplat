@@ -20,7 +20,7 @@
                                           <div class="col-sm-4">
                                             <div class="form-group mb-0">
                                               <label for="txtRucProveedor" class="col-form-label col-form-label-sm">RUC:</label>
-                                              <input type="text" class="form-control form-control-sm model" readonly id="txtRucProveedor" name="RUC">
+                                              <input type="text" class="form-control form-control-sm model" readonly id="txtRucProveedor" name="RUT">
                                             </div>
                                           </div>
                                           <div class="col-sm-4">

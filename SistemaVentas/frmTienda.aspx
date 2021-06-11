@@ -23,7 +23,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Nombre</th>
-                                            <th>RUC</th>
+                                            <th>RUT</th>
                                             <th>Direccion</th>
                                             <th>Telefono</th>
                                             <th>Estado</th>
@@ -58,13 +58,13 @@
               <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label col-form-label-sm">Nombre</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control form-control-sm model" id="txtNombre" name="RUC">
+                  <input type="text" class="form-control form-control-sm model" id="txtNombre" name="RUT">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label col-form-label-sm">Ruc</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control form-control-sm model" id="txtRuc" name="Razón Social">
+                  <input type="text" class="form-control form-control-sm model" id="txtRuc" name="Nombre Proveedor">
                 </div>
               </div>
               <div class="form-group row">

@@ -33,7 +33,7 @@ namespace CapaDatos
         public List<ProductoTienda> ObtenerProductoTienda()
         {
             List<ProductoTienda> rptListaProductoTienda = new List<ProductoTienda>();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerProductoTienda", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -58,7 +58,7 @@ namespace CapaDatos
                             oTienda = new Tienda()
                             {
                                 IdTienda = Convert.ToInt32(dr["IdTienda"].ToString()),
-                                RUC = dr["RUC"].ToString(),
+                                RUT = dr["RUT"].ToString(),
                                 Nombre = dr["NombreTienda"].ToString(),
                                 Direccion = dr["DireccionTienda"].ToString(),
                             },
@@ -84,7 +84,7 @@ namespace CapaDatos
         public bool RegistrarProductoTienda(ProductoTienda oProductoTienda)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -112,7 +112,7 @@ namespace CapaDatos
         public bool ModificarProductoTienda(ProductoTienda oProductoTienda)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -145,7 +145,7 @@ namespace CapaDatos
         public bool EliminarProductoTienda(int IdProductoTienda)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -175,7 +175,7 @@ namespace CapaDatos
         public bool ControlarStock(int IdProducto, int IdTienda, int Cantidad, bool Restar)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {

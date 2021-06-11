@@ -33,7 +33,7 @@ namespace CapaDatos
         public List<Rol> ObtenerRol()
         {
             List<Rol> rptListaRol = new List<Rol>();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerRoles", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -68,7 +68,7 @@ namespace CapaDatos
         public bool RegistrarRol(Rol oRol)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -95,7 +95,7 @@ namespace CapaDatos
         public bool ModificarRol(Rol oRol)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -128,7 +128,7 @@ namespace CapaDatos
         public bool EliminarRol(int IdRol)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {

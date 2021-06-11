@@ -33,7 +33,7 @@ namespace CapaDatos
         public List<Proveedor> ObtenerProveedor()
         {
             List<Proveedor> rptListaProveedor = new List<Proveedor>();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerProveedores", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -48,7 +48,7 @@ namespace CapaDatos
                         rptListaProveedor.Add(new Proveedor()
                         {
                             IdProveedor = Convert.ToInt32(dr["IdProveedor"].ToString()),
-                            Ruc = dr["Ruc"].ToString(),
+                            Rut = dr["Rut"].ToString(),
                             RazonSocial = dr["RazonSocial"].ToString(),
                             Telefono = dr["Telefono"].ToString(),
                             Correo = dr["Correo"].ToString(),
@@ -73,12 +73,12 @@ namespace CapaDatos
         public bool RegistrarProveedor(Proveedor oProveedor)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
                     SqlCommand cmd = new SqlCommand("usp_RegistrarProveedor", oConexion);
-                    cmd.Parameters.AddWithValue("Ruc", oProveedor.Ruc);
+                    cmd.Parameters.AddWithValue("Rut", oProveedor.Rut);
                     cmd.Parameters.AddWithValue("RazonSocial", oProveedor.RazonSocial);
                     cmd.Parameters.AddWithValue("Telefono", oProveedor.Telefono);
                     cmd.Parameters.AddWithValue("Correo", oProveedor.Correo);
@@ -105,13 +105,13 @@ namespace CapaDatos
         public bool ModificarProveedor(Proveedor oProveedor)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
                     SqlCommand cmd = new SqlCommand("usp_ModificarProveedor", oConexion);
                     cmd.Parameters.AddWithValue("IdProveedor", oProveedor.IdProveedor);
-                    cmd.Parameters.AddWithValue("Ruc", oProveedor.Ruc);
+                    cmd.Parameters.AddWithValue("Rut", oProveedor.Rut);
                     cmd.Parameters.AddWithValue("RazonSocial", oProveedor.RazonSocial);
                     cmd.Parameters.AddWithValue("Telefono", oProveedor.Telefono);
                     cmd.Parameters.AddWithValue("Correo", oProveedor.Correo);
@@ -141,7 +141,7 @@ namespace CapaDatos
         public bool EliminarProveedor(int IdProveedor)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {

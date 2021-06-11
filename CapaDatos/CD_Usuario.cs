@@ -36,7 +36,7 @@ namespace CapaDatos
         public int LoginUsuario(string Usuario, string Clave)
         {
             int respuesta = 0;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -64,7 +64,7 @@ namespace CapaDatos
         public Usuario ObtenerDetalleUsuario(int IdUsuario)
         {
             Usuario rptUsuario = new Usuario();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerDetalleUsuario", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -96,7 +96,7 @@ namespace CapaDatos
                                                       {
                                                           IdTienda = int.Parse(dato.Element("IdTienda").Value),
                                                           Nombre = dato.Element("Nombre").Value,
-                                                          RUC = dato.Element("RUC").Value,
+                                                          RUT = dato.Element("RUT").Value,
                                                           Direccion = dato.Element("Direccion").Value,
                                                           Telefono = dato.Element("Telefono").Value
                                                       }).FirstOrDefault();
@@ -144,7 +144,7 @@ namespace CapaDatos
         public List<Usuario> ObtenerUsuarios()
         {
             List<Usuario> rptListaUsuario = new List<Usuario>();
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 SqlCommand cmd = new SqlCommand("usp_ObtenerUsuario", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -188,7 +188,7 @@ namespace CapaDatos
         public bool RegistrarUsuario(Usuario oUsuario)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -224,7 +224,7 @@ namespace CapaDatos
         public bool ModificarUsuario(Usuario oUsuario)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {
@@ -261,7 +261,7 @@ namespace CapaDatos
         public bool EliminarUsuario(int IdUsuario)
         {
             bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            using (SqlConnection oConexion = new SqlConnection(Conexion.ConexionDatos))
             {
                 try
                 {

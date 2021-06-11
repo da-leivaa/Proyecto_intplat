@@ -40,8 +40,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td width="15">Ruc:</td>
-                            <td style="border-bottom: 1px solid black;"><center><span id="rucproveedor"></span></center></td>
+                            <td width="15">Rut:</td>
+                            <td style="border-bottom: 1px solid black;"><center><span id="rutproveedor"></span></center></td>
                             <td width="100">Razon Social:</td>
                             <td style="border-bottom: 1px solid black;"><center><span id="nombreproveedor"></span></center></td>
                         </tr>
@@ -58,8 +58,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td width="15">Ruc:</td>
-                            <td style="border-bottom: 1px solid black;"><center><span id="ructienda"></span></center></td>
+                            <td width="15">Rut:</td>
+                            <td style="border-bottom: 1px solid black;"><center><span id="ruttienda"></span></center></td>
                             <td width="110">Nombre Tienda:</td>
                             <td style="border-bottom: 1px solid black;"><center><span id="nombretienda"></span></center></td>
                         </tr>
@@ -143,10 +143,10 @@
                         $("#numero").text(response.objeto.Codigo);
                         $("#fechacompra").text(response.objeto.FechaCompra);
 
-                        $("#rucproveedor").text(response.objeto.oProveedor.Ruc);
+                        $("#rutproveedor").text(response.objeto.oProveedor.Rut);
                         $("#nombreproveedor").text(response.objeto.oProveedor.RazonSocial);
 
-                        $("#ructienda").text(response.objeto.oTienda.RUC);
+                        $("#ruttienda").text(response.objeto.oTienda.RUT);
                         $("#nombretienda").text(response.objeto.oTienda.Nombre);
                         
                         $("#totalcosto").text(response.objeto.TotalCosto);
