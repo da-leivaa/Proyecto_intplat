@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace SistemaVentas
 {
@@ -15,27 +16,39 @@ namespace SistemaVentas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ObtenerProductoXTienda();
         }
 
-        [WebMethod]
-        public static Respuesta<string> Obtener(int idtienda, string codigoproducto)
+        protected void ObtenerProductoXTienda()
         {
-            DataTable dt = CD_Reportes.Instancia.ReporteProductoTienda(idtienda, codigoproducto);
+            var codigoLibro = int.Parse(txt.Text);
 
-            System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-            List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
-            Dictionary<string, object> row;
-            foreach (DataRow dr in dt.Rows)
+            using (ws_instrument.WebService_instrumentosSoapClient instrumentos = new ws_instrument.WebService_instrumentosSoapClient())
             {
-                row = new Dictionary<string, object>();
-                foreach (DataColumn col in dt.Columns)
-                {
-                    row.Add(col.ColumnName, dr[col]);
-                }
-                rows.Add(row);
+                
+                DataSet ds = instrumentos.ProductoXtienda(idtienda, codigoproducto);
+
+                tbReporte.DataSource = ds;
+                tbReporte.DataBind();
+
             }
-            return new Respuesta<string>() { estado = true , objeto = serializer.Serialize(rows) };
+
+
+            //DataTable dt = CD_Reportes.Instancia.ReporteProductoTienda(idtienda, codigoproducto);
+
+            //System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            //List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
+            //Dictionary<string, object> row;
+            //foreach (DataRow dr in dt.Rows)
+            //{
+            //    row = new Dictionary<string, object>();
+            //    foreach (DataColumn col in dt.Columns)
+            //    {
+            //        row.Add(col.ColumnName, dr[col]);
+            //    }
+            //    rows.Add(row);
+            //}
+            //return new Respuesta<string>() { estado = true , objeto = serializer.Serialize(rows) };
             
         }
     }

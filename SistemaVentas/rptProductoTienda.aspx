@@ -21,6 +21,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form id="form1" runat="server">
     <div class="row">
             <div class="col-sm-12">
                <div class="card">
@@ -31,20 +32,18 @@
                         <div class="row">
                             <div class="col-sm-2">
                               <div class="form-group mb-0">
-                                <label for="cboTienda" class="col-form-label col-form-label-sm">Tienda:</label>
-                                <select class="form-control form-control-sm model" id="cboTienda" name="Tienda">
-                                </select>
+                                <label for="cboTienda" class="col-form-label col-form-label-sm">Tienda:</label>&nbsp;
+                                  <asp:TextBox ID="txtTienda" runat="server"></asp:TextBox>
                               </div>
                             </div>
                             <div class="col-sm-2">
                               <div class="form-group mb-0">
                                 <label for="txtCodigoProducto" class="col-form-label col-form-label-sm">Codigo Producto:</label>
-                                <input type="text" class="form-control form-control-sm model" id="txtCodigoProducto" name="FechaInicio" autocomplete="off">
-                              </div>
+                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group mb-0">
-                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label><asp:TextBox ID="txtProducto" runat="server"></asp:TextBox>
                                     <button id="btnBuscar" type="button" class="btn btn-sm btn-primary btn-block">Buscar</button>
                                 </div>
                             </div>
@@ -52,6 +51,7 @@
                       <hr />
                         <div class="row mt-3">
                             <div class="col-sm-12">
+                                <asp:DataGrid id="tbReporte" runat="server"></asp:DataGrid>
                                 <table id="tbReporte" class="table table-striped table-bordered nowrap compact" style="width:100%">
                                     <thead>
                                         <tr>
@@ -78,4 +78,5 @@
             </div>
     </div>
     <script src="Controlador/rptProductoTienda/rptProductoTienda.js"></script>
+    </form>
 </asp:Content>
